@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+<div class="alert alert-danger" role="alert" >
+{{ error }}
+</div>
+{% endif %}
+
+<h1>
+	Upload File
+</h1>
+<br><br>
+
+<form method="POST" action="{% url 'uploadfile' %}" enctype="multipart/form-data" >
+	{% csrf_token %}
+	File Name:
+	<br>
+	<input type="text" name="filename" placeholder="Enter file name">
+	<small id="usernameHelp" class="form-text text-muted">Default is set to the name of the file</small>
+	<br>
+	<input type=file required name="document">
+	<input class="btn btn-primary" type="submit" value="Upload">
+</form>
+
+{% endblock %}

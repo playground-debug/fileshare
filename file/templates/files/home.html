@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center">
+    <h2 class="text-info text-center">All Files</h2>
+    <br>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">File Name</th>
+      <th scope="col">Date Uploaded</th>
+      <th scope="col">Username</th>
+      <th scope="col">File Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for document in files.all %}
+    <tr>
+      <td scope="row"><a href="{{document.file.url}}" download>{{document.filename}}</a></td>
+      <td>{{document.dateUploaded}}</td>
+      <td>{{document.user}}</td>
+      <td>{{document.filetype}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

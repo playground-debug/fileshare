@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center">
+  <h2 class="text-info text-center">Files Portal</h2>
+  <hr>
+  <br>
+  <h3 class="display-4">Total Files</h3>
+  <div class="album py-5">
+    <div class="container">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <p class="card-text text-info" align="center">
+                {{ total }}
+              </p>
+            </div>
+          </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h3 class="display-4">File Type</h3>
+  <div class="album py-5">
+    <div class="container">
+      <div class="row">
+        {% for category in filetype %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <p class="card-text" align="center">
+                {{ category.filetype }}
+              </p>
+              <p class="card-text text-info" align="center">
+                {{ category.count }}
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+<!-- Subs -->
+
+  <br><br>
+
+
+  <h3 class="display-4">Username</h3>
+  <div class="album py-5">
+    <div class="container">
+      <div class="row">
+        {% for person in users %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <p class="card-text" align="center">
+                {{ person.user__username }}
+              </p>
+              <p class="card-text text-info" align="center">
+                {{ person.count }}
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
